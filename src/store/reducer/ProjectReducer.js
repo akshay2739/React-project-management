@@ -8,6 +8,12 @@ const initstate = {
 }
 
 const ProjectReducer = (state = initstate, action) => {
+    
+    if(action.type === 'ADD_PROJECT')
+    {
+        console.log(action.project)
+    }
+    
     return state
 }
 
