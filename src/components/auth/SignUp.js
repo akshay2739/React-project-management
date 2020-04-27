@@ -41,6 +41,7 @@ class SignIn extends Component {
           <div className="input-field">
             <button className="btn pink lighten-1 z-depth-0">SignUp</button>
           </div>
+          
         </form>
       </div>
     )
@@ -48,3 +49,4 @@ class SignIn extends Component {
 }
 
 export default SignIn
+
