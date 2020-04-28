@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 // Replace this with your own config details
-var config = {
+const config = {
   apiKey: "AIzaSyC5Dn7zejGrPBEeu7jRec9b_hzgY6NtiSE",
   authDomain: "project-management-syste-3815a.firebaseapp.com",
   databaseURL: "https://project-management-syste-3815a.firebaseio.com",
@@ -17,3 +17,5 @@ firebase.initializeApp(config);
 firebase.firestore().settings({ timestampsInSnapshots: true });
 
 export default firebase 
+
+ 
