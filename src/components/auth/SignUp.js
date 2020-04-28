@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
-class SignIn extends Component {
+class SignUp extends Component {
   state = {
     email: '',
     password: '',
-    firstName:'',
-    lastName:''
+    firstName: '',
+    lastName: '',
   }
   handleChange = (e) => {
     this.setState({
@@ -29,24 +29,21 @@ class SignIn extends Component {
             <label htmlFor="password">Password</label>
             <input type="password" id='password' onChange={this.handleChange} />
           </div>
-
           <div className="input-field">
-            <label htmlFor="email">First name</label>
+            <label htmlFor="firstName">First Name</label>
             <input type="text" id='firstName' onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <label htmlFor="email">Last Name</label>
+            <label htmlFor="lastName">Last Name</label>
             <input type="text" id='lastName' onChange={this.handleChange} />
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">SignUp</button>
+            <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
           </div>
-          
         </form>
       </div>
     )
   }
 }
 
-export default SignIn
-
+export default SignUp
