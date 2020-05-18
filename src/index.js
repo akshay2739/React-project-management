@@ -20,40 +20,42 @@ import { isLoaded  } from 'react-redux-firebase';
 
 
 const store = createStore(
-  RootReducer,
+  RootReducer, 
   compose(
-    applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
-    reduxFirestore(fbConfig)
+      applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+      reduxFirestore(firebase, fbConfig),
   )
 );
 
+const rrfConfig = {
+  userProfile: 'users',
+  useFirestoreForProfile: true
+}
 
 const rrfProps = {
   firebase,
-  config: fbConfig,
+  config: rrfConfig,
   dispatch: store.dispatch,
   createFirestoreInstance,
-  userProfile: 'users', // where profiles are stored in database
-  presence: 'presence', // where list of online users is stored in database
+  presence: 'presence',
   sessions: 'sessions'
 }
-
-
-
 
 function AuthIsLoaded({ children }) {
   const auth = useSelector(state => state.firebase.auth)
   if (!isLoaded(auth)) return <div>Loading Screen...</div>;
-      return children
+  return children
 }
 
-
-
-
-ReactDOM.render(<Provider store={store}> <ReactReduxFirebaseProvider {...rrfProps}> <AuthIsLoaded><App /> </AuthIsLoaded></ReactReduxFirebaseProvider></Provider>, document.getElementById('root'));
-
-
-
-
+ReactDOM.render(
+  <Provider store={store}>
+      <ReactReduxFirebaseProvider { ...rrfProps }>
+          <AuthIsLoaded>
+              <App />
+          </AuthIsLoaded>
+      </ReactReduxFirebaseProvider>
+  </Provider>, 
+  document.getElementById('root')
+);
 
 serviceWorker.unregister();
